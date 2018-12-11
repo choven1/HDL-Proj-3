@@ -13,20 +13,25 @@ set_property CONFIG_VOLTAGE 3.3 [current_design]
 #
 ## Switches
 #SW0
-set_property PACKAGE_PIN V17 [get_ports {SWITCH[0]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {SWITCH[0]}]
-#SW1
-set_property PACKAGE_PIN V16 [get_ports {SWITCH[1]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {SWITCH[1]}]
-#SW2
-set_property PACKAGE_PIN W16 [get_ports {SWITCH[2]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {SWITCH[2]}]
-#SW3
-set_property PACKAGE_PIN W17 [get_ports {SWITCH[3]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {SWITCH[3]}]
-#SW15
-set_property PACKAGE_PIN R2 [get_ports {Reset}]					
+set_property PACKAGE_PIN V17 [get_ports {Reset}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {Reset}]
+	
+## Buttons
+# BTNU
+    set_property PACKAGE_PIN T18 [get_ports {Up}]                    
+        set_property IOSTANDARD LVCMOS33 [get_ports {Up}]
+# BTNR
+    set_property PACKAGE_PIN T17 [get_ports {Right}]                    
+        set_property IOSTANDARD LVCMOS33 [get_ports {Right}]
+# BTND
+    set_property PACKAGE_PIN U17 [get_ports {Down}]                    
+        set_property IOSTANDARD LVCMOS33 [get_ports {Down}]
+# BTNL
+    set_property PACKAGE_PIN W19 [get_ports {Left}]                    
+        set_property IOSTANDARD LVCMOS33 [get_ports {Left}]
+# BTNM
+    set_property PACKAGE_PIN U18 [get_ports {go}]                    
+        set_property IOSTANDARD LVCMOS33 [get_ports {go}]
  
 ##VGA Connector
 set_property PACKAGE_PIN G19 [get_ports {RED[0]}]				
