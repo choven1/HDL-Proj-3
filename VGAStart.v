@@ -1,6 +1,7 @@
 // VGAStart.v - Top level module for example VGA driver implementation in Verilog
 // UW EE 4490 
 // Adapted from original code by Jerry C. Hamann
+// Adapted again to use new modules by James Mock
 
 module FirstVGA(VS, HS, RED, GREEN, BLUE, CLK_100MHz, Reset, Go, Up, Right, Down, Left);
     output          VS, HS; 

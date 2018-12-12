@@ -1,3 +1,5 @@
+//Written by James Mock to generate a random x,y coordinate
+//within the bounds of an 800x600 for use by the main system.
 module RandomPoint(CLK_100MHz, randX, randY);
 	input CLK_100MHz;
 	output [10:0]randX;

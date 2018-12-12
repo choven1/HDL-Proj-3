@@ -1,3 +1,7 @@
+//Written by James Mock for the purpose of HDL digital design project 3
+//handles the input from buttons up, right, down, and left to tell system which
+//direction to travel in.
+//prevents movement in direct opposite direction
 module ButtonInput (CLK_100MHz,gameOver,Up,Right,Down,Left,dir);
 	input CLK_100MHz, gameOver, Up, Right, Down, Left;
 	output reg [1:0] dir;

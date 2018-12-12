@@ -1,3 +1,6 @@
+//Modified by James Mock from an internet source
+//used to generate a slower clock speed used in the movement
+//of screen sprites 
 module UpdateClk(CLK_100MHz,CLK_update);
 	input CLK_100MHz;
 	output reg CLK_update;
