@@ -1,22 +1,22 @@
 module Snake (CLK_100MHz,CLK_update,Reset,Go,dir,gameOver,randX,randY,VBlank,HBlank,
 			  CurrentX,CurrentY,RED,GREEN,BLUE);
-	input CLK_100MHz, CLK_update, Reset, VBlank, HBlank, Go;
-	input [10:0] randX, randY, CurrentX, CurrentY;  
-	input [1:0] dir; 
-	output reg gameOver;
-	output reg [3:0] RED, GREEN, BLUE;
+    input CLK_100MHz, CLK_update, Reset, VBlank, HBlank, Go;
+    input [10:0] randX, randY, CurrentX, CurrentY;  
+    input [1:0] dir; 
+    output reg gameOver;
+    output reg [3:0] RED, GREEN, BLUE;
     
-    parameter MAXSIZE = 32;
+    parameter MAXSIZE = 127; //can be set to any multiple of 4 plus 3 more (k*4)+3=MAXSIZE
     reg displayArea, apple, border, snake, head, temp;
     wire R, G, B;
     reg [10:0] appleX, appleY;
-    reg [10:0] snakeX[0:MAXSIZE-1]; // snake body X positions
-    reg [10:0] snakeY[0:MAXSIZE-1]; // snake body Y positions
-    reg [10:0] snakeX2[0:MAXSIZE-1]; // next snake body X positions
-    reg [10:0] snakeY2[0:MAXSIZE-1]; // next snake body Y positions
+    reg [10:0] snakeX[0:MAXSIZE]; // snake body X positions
+    reg [10:0] snakeY[0:MAXSIZE]; // snake body Y positions
+    reg [10:0] snakeX2[0:MAXSIZE]; // next snake body X positions
+    reg [10:0] snakeY2[0:MAXSIZE]; // next snake body Y positions
     reg pause;
-    reg [4:0] size;
-	integer i, j ,k, m;
+    reg [6:0] size;
+    integer i, j ,k, m;
 			  
     always@(posedge CLK_100MHz) begin
         if (Go) pause <= 0;
@@ -26,7 +26,7 @@ module Snake (CLK_100MHz,CLK_update,Reset,Go,dir,gameOver,randX,randY,VBlank,HBl
             snakeX2[0] <= 100;
             snakeY2[0] <= 500;
             pause <= 1;
-            size <= 4;
+            size <= 3;
             for(i=1; i<MAXSIZE; i=i+1) begin
                 snakeX2[i] <= 0;
                 snakeY2[i] <= 0;
@@ -61,7 +61,8 @@ module Snake (CLK_100MHz,CLK_update,Reset,Go,dir,gameOver,randX,randY,VBlank,HBl
         if(apple && head) begin
             appleX <= randX;
             appleY <= randY;
-            size <= (size<MAXSIZE-1) ? size+4: size; end // expand by four sections
+            size <= (size<MAXSIZE) ? size+4: size; 
+	end // expand by four sections
             
         // gameover collisions    
         if((border && head) || (head && snake))
