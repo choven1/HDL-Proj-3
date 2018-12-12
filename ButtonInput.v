@@ -1,10 +1,10 @@
-module ButtonInput (CLK_100MHz,Up,Right,Down,Left,dir);
-	input CLK_100MHz, Up, Right, Down, Left;
+module ButtonInput (CLK_100MHz,gameOver,Up,Right,Down,Left,dir);
+	input CLK_100MHz, gameOver, Up, Right, Down, Left;
 	output reg [1:0] dir;
 	
     always@(posedge CLK_100MHz) 
 	begin
-        if(Up&&(dir!=2'b10)) 
+        if(gameOver || (Up && (dir!=2'b10))) 
             dir <= 2'b00; //up
         else if(Right&&(dir!=2'b11)) 
             dir <= 2'b01; //right

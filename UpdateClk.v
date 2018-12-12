@@ -5,7 +5,7 @@ module UpdateClk(CLK_100MHz,CLK_update);
 
 	always@(posedge CLK_100MHz)
 	begin
-		if(count == 2000000) begin
+		if(count == 3000000) begin
 			CLK_update <= ~CLK_update;
 			count <= 0; end	
 		else begin

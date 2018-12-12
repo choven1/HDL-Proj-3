@@ -17,6 +17,9 @@ set_property PACKAGE_PIN V17 [get_ports {Reset}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {Reset}]
 	
 ## Buttons
+# BTNC
+    set_property PACKAGE_PIN U18 [get_ports {Go}]                    
+        set_property IOSTANDARD LVCMOS33 [get_ports {Go}]
 # BTNU
     set_property PACKAGE_PIN T18 [get_ports {Up}]                    
         set_property IOSTANDARD LVCMOS33 [get_ports {Up}]
@@ -29,9 +32,6 @@ set_property PACKAGE_PIN V17 [get_ports {Reset}]
 # BTNL
     set_property PACKAGE_PIN W19 [get_ports {Left}]                    
         set_property IOSTANDARD LVCMOS33 [get_ports {Left}]
-# BTNM
-    set_property PACKAGE_PIN U18 [get_ports {go}]                    
-        set_property IOSTANDARD LVCMOS33 [get_ports {go}]
  
 ##VGA Connector
 set_property PACKAGE_PIN G19 [get_ports {RED[0]}]				
